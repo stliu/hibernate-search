@@ -28,46 +28,11 @@
 %BOOK_ENTITIES;
 ]>
 <book>
-  <bookinfo>
-    <title>Hibernate Search</title>
 
-    <subtitle>Apache <trademark>Lucene</trademark> Integration</subtitle>
 
-    <subtitle>Reference Guide</subtitle>
 
-    <releaseinfo>&version;</releaseinfo>
-
-    <mediaobject>
-      <imageobject role="fo">
-        <imagedata align="center" fileref="hibernate_logo_a.png" />
-      </imageobject>
-
-      <imageobject role="html">
-        <imagedata depth="3cm" fileref="hibernate_logo_a.png" />
-      </imageobject>
-    </mediaobject>
-  </bookinfo>
-
-  <toc></toc>
-
-  <preface id="preface" revision="2">
-    <title>Preface</title>
-
-    <para>Full text search engines like Apache Lucene are very powerful
-    technologies to add efficient free text search capabilities to
-    applications. However, Lucene suffers several mismatches when dealing with
-    object domain models. Amongst other things indexes have to be kept up to
-    date and mismatches between index structure and domain model as well as
-    query mismatches have to be avoided.</para>
-
-    <para>Hibernate Search addresses these shortcomings - it indexes your
-    domain model with the help of a few annotations, takes care of
-    database/index synchronization and brings back regular managed objects
-    from free text queries. To achieve this Hibernate Search is combining the
-    power of <ulink url="http://www.hibernate.org">Hibernate</ulink> and
-    <ulink url="http://lucene.apache.org">Apache Lucene</ulink>.</para>
-  </preface>
-
+  <xi:include href="Book_Info.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+  <xi:include href="modules/preface.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
   <xi:include href="modules/getting-started.xml"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
 
