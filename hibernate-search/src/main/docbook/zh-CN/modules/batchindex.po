@@ -5,23 +5,23 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2010-07-01 20:08+0000\n"
+"POT-Creation-Date: 2011-07-01 17:21+0000\n"
 "PO-Revision-Date: 2010-07-01 20:08+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
+"Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh-CN\n"
 
 #. Tag: title
-#: batchindex.xml:30
+#: batchindex.xml:31
 #, no-c-format
 msgid "Manual index changes"
 msgstr ""
 
 #. Tag: para
-#: batchindex.xml:32
+#: batchindex.xml:33
 #, no-c-format
 msgid ""
 "As Hibernate core applies changes to the Database, Hibernate Search detects "
@@ -35,7 +35,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: batchindex.xml:40
+#: batchindex.xml:42
 #, no-c-format
 msgid ""
 "All these methods affect the Lucene Index only, no changes are applied to "
@@ -43,13 +43,13 @@ msgid ""
 msgstr ""
 
 #. Tag: title
-#: batchindex.xml:44
+#: batchindex.xml:46
 #, no-c-format
-msgid "Adding instances to the Index"
+msgid "Adding instances to the index"
 msgstr ""
 
 #. Tag: para
-#: batchindex.xml:46
+#: batchindex.xml:48
 #, no-c-format
 msgid ""
 "Using <classname>FullTextSession</classname>.<methodname>index(T entity)</"
@@ -59,7 +59,7 @@ msgid ""
 msgstr ""
 
 #. Tag: title
-#: batchindex.xml:52
+#: batchindex.xml:55
 #, no-c-format
 msgid ""
 "Indexing an entity via <methodname>FullTextSession.index(T entity)</"
@@ -67,7 +67,7 @@ msgid ""
 msgstr ""
 
 #. Tag: programlisting
-#: batchindex.xml:55
+#: batchindex.xml:58
 #, no-c-format
 msgid ""
 "FullTextSession fullTextSession = Search.getFullTextSession(session);\n"
@@ -78,7 +78,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: batchindex.xml:58
+#: batchindex.xml:61
 #, no-c-format
 msgid ""
 "In case you want to add all instances for a type, or for all indexed types, "
@@ -87,13 +87,13 @@ msgid ""
 msgstr ""
 
 #. Tag: title
-#: batchindex.xml:65
+#: batchindex.xml:68
 #, no-c-format
-msgid "Deleting instances from the Index: Purging"
+msgid "Deleting instances from the index"
 msgstr ""
 
 #. Tag: para
-#: batchindex.xml:67
+#: batchindex.xml:70
 #, no-c-format
 msgid ""
 "It is equally possible to remove an entity or all entities of a given type "
@@ -103,13 +103,13 @@ msgid ""
 msgstr ""
 
 #. Tag: title
-#: batchindex.xml:73
+#: batchindex.xml:76
 #, no-c-format
 msgid "Purging a specific instance of an entity from the index"
 msgstr ""
 
 #. Tag: programlisting
-#: batchindex.xml:75
+#: batchindex.xml:78
 #, no-c-format
 msgid ""
 "FullTextSession fullTextSession = Search.getFullTextSession(session);\n"
@@ -122,7 +122,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: batchindex.xml:78
+#: batchindex.xml:81
 #, no-c-format
 msgid ""
 "Purging will remove the entity with the given id from the Lucene index but "
@@ -130,7 +130,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: batchindex.xml:81
+#: batchindex.xml:84
 #, no-c-format
 msgid ""
 "If you need to remove all entities of a given type, you can use the "
@@ -139,13 +139,13 @@ msgid ""
 msgstr ""
 
 #. Tag: title
-#: batchindex.xml:87
+#: batchindex.xml:90
 #, no-c-format
 msgid "Purging all instances of an entity from the index"
 msgstr ""
 
 #. Tag: programlisting
-#: batchindex.xml:89
+#: batchindex.xml:92
 #, no-c-format
 msgid ""
 "FullTextSession fullTextSession = Search.getFullTextSession(session);\n"
@@ -158,13 +158,13 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: batchindex.xml:92
+#: batchindex.xml:95
 #, no-c-format
 msgid "It is recommended to optimize the index after such an operation."
 msgstr ""
 
 #. Tag: para
-#: batchindex.xml:96
+#: batchindex.xml:99
 #, no-c-format
 msgid ""
 "Methods <methodname>index</methodname>, <methodname>purge</methodname> and "
@@ -173,7 +173,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: batchindex.xml:102
+#: batchindex.xml:106
 #, no-c-format
 msgid ""
 "All manual indexing methods (<methodname>index</methodname>, "
@@ -184,13 +184,13 @@ msgid ""
 msgstr ""
 
 #. Tag: title
-#: batchindex.xml:112
+#: batchindex.xml:116
 #, no-c-format
-msgid "Rebuilding the whole Index"
+msgid "Rebuilding the whole index"
 msgstr ""
 
 #. Tag: para
-#: batchindex.xml:114
+#: batchindex.xml:118
 #, no-c-format
 msgid ""
 "If you change the entity mapping to the index, chances are that the whole "
@@ -203,7 +203,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: batchindex.xml:124
+#: batchindex.xml:128
 #, no-c-format
 msgid ""
 "Using <classname>FullTextSession</classname>.<methodname>flushToIndexes()</"
@@ -212,19 +212,19 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: batchindex.xml:129
+#: batchindex.xml:136
 #, no-c-format
 msgid "Use a <classname>MassIndexer</classname>."
 msgstr ""
 
 #. Tag: title
-#: batchindex.xml:134
+#: batchindex.xml:141
 #, no-c-format
 msgid "Using flushToIndexes()"
 msgstr ""
 
 #. Tag: para
-#: batchindex.xml:136
+#: batchindex.xml:143
 #, no-c-format
 msgid ""
 "This strategy consists in removing the existing index and then adding all "
@@ -245,13 +245,13 @@ msgid ""
 msgstr ""
 
 #. Tag: title
-#: batchindex.xml:154
+#: batchindex.xml:162
 #, no-c-format
 msgid "Index rebuilding using index() and flushToIndexes()"
 msgstr ""
 
 #. Tag: programlisting
-#: batchindex.xml:156
+#: batchindex.xml:164
 #, no-c-format
 msgid ""
 "fullTextSession.setFlushMode(FlushMode.MANUAL);\n"
@@ -274,7 +274,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: batchindex.xml:160
+#: batchindex.xml:168
 #, no-c-format
 msgid ""
 "<literal>hibernate.search.worker.batch_size</literal> has been deprecated in "
@@ -282,7 +282,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: batchindex.xml:164
+#: batchindex.xml:173
 #, no-c-format
 msgid ""
 "Try to use a batch size that guarantees that your application will not run "
@@ -291,13 +291,13 @@ msgid ""
 msgstr ""
 
 #. Tag: title
-#: batchindex.xml:171
+#: batchindex.xml:179
 #, no-c-format
 msgid "Using a MassIndexer"
 msgstr ""
 
 #. Tag: para
-#: batchindex.xml:172
+#: batchindex.xml:181
 #, no-c-format
 msgid ""
 "Hibernate Search's <classname>MassIndexer</classname> uses several parallel "
@@ -309,19 +309,19 @@ msgid ""
 msgstr ""
 
 #. Tag: title
-#: batchindex.xml:179
+#: batchindex.xml:189
 #, no-c-format
 msgid "Index rebuilding using a MassIndexer"
 msgstr ""
 
 #. Tag: programlisting
-#: batchindex.xml:180
+#: batchindex.xml:191
 #, no-c-format
 msgid "fullTextSession.createIndexer().startAndWait();"
 msgstr ""
 
 #. Tag: para
-#: batchindex.xml:181
+#: batchindex.xml:194
 #, no-c-format
 msgid ""
 "This will rebuild the index, deleting it and then reloading all entities "
@@ -330,7 +330,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: batchindex.xml:186
+#: batchindex.xml:200
 #, no-c-format
 msgid ""
 "During the progress of a MassIndexer the content of the index is undefined, "
@@ -340,37 +340,40 @@ msgid ""
 msgstr ""
 
 #. Tag: title
-#: batchindex.xml:192
+#: batchindex.xml:207
 #, no-c-format
 msgid "Using a tuned MassIndexer"
 msgstr ""
 
 #. Tag: programlisting
-#: batchindex.xml:193
+#: batchindex.xml:209
 #, no-c-format
 msgid ""
 "fullTextSession\n"
-"        .createIndexer( User.class )\n"
-"        .batchSizeToLoadObjects( 25 )\n"
-"        .cacheMode( CacheMode.NORMAL )\n"
-"        .threadsToLoadObjects( 5 )\n"
-"        .threadsForSubsequentFetching( 20 )\n"
-"        .startAndWait();"
+" .createIndexer( User.class )\n"
+" .batchSizeToLoadObjects( 25 )\n"
+" .cacheMode( CacheMode.NORMAL )\n"
+" .threadsToLoadObjects( 5 )\n"
+" .threadsForIndexWriter( 3 )\n"
+" .threadsForSubsequentFetching( 20 )\n"
+" .progressMonitor( monitor ) //a MassIndexerProgressMonitor implementation\n"
+" .startAndWait();"
 msgstr ""
 
 #. Tag: para
-#: batchindex.xml:194
+#: batchindex.xml:212
 #, no-c-format
 msgid ""
 "This will rebuild the index of all User instances (and subtypes), and will "
 "create 5 parallel threads to load the User instances using batches of 25 "
 "objects per query; these loaded User instances are then pipelined to 20 "
 "parallel threads to load the attached lazy collections of User containing "
-"some information needed for the index."
+"some information needed for the index. Finally, 3 parallel threads are being "
+"used to Analyze the text and write to the index."
 msgstr ""
 
 #. Tag: para
-#: batchindex.xml:199
+#: batchindex.xml:220
 #, no-c-format
 msgid ""
 "It is recommended to leave cacheMode to <literal>CacheMode.IGNORE</literal> "
@@ -382,7 +385,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: batchindex.xml:205
+#: batchindex.xml:228
 #, no-c-format
 msgid ""
 "The \"sweet spot\" of number of threads to achieve best performance is "
@@ -393,7 +396,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: batchindex.xml:214
+#: batchindex.xml:237
 #, no-c-format
 msgid ""
 "The MassIndexer was designed for speed and is unaware of transactions, so "
@@ -404,69 +407,109 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: batchindex.xml:223
+#: batchindex.xml:246
 #, no-c-format
-msgid ""
-"Other parameters which also affect indexing time and memory consumption are:"
+msgid "Other parameters which affect indexing time and memory consumption are:"
 msgstr ""
 
 #. Tag: literal
-#: batchindex.xml:228
+#: batchindex.xml:251
 #, no-c-format
 msgid "hibernate.search.[default|&lt;indexname&gt;].exclusive_index_use"
 msgstr ""
 
 #. Tag: literal
-#: batchindex.xml:232
+#: batchindex.xml:255
 #, no-c-format
 msgid ""
-"hibernate.search.[default|&lt;indexname&gt;].indexwriter.batch."
-"max_buffered_docs"
+"hibernate.search.[default|&lt;indexname&gt;].indexwriter.max_buffered_docs"
 msgstr ""
 
 #. Tag: literal
-#: batchindex.xml:236
+#: batchindex.xml:259
 #, no-c-format
-msgid ""
-"hibernate.search.[default|&lt;indexname&gt;].indexwriter.batch."
-"max_field_length"
+msgid "hibernate.search.[default|&lt;indexname&gt;].indexwriter.max_merge_docs"
 msgstr ""
 
 #. Tag: literal
-#: batchindex.xml:240
+#: batchindex.xml:263
 #, no-c-format
-msgid ""
-"hibernate.search.[default|&lt;indexname&gt;].indexwriter.batch.max_merge_docs"
+msgid "hibernate.search.[default|&lt;indexname&gt;].indexwriter.merge_factor"
 msgstr ""
 
 #. Tag: literal
-#: batchindex.xml:244
+#: batchindex.xml:267
 #, no-c-format
-msgid ""
-"hibernate.search.[default|&lt;indexname&gt;].indexwriter.batch.merge_factor"
+msgid "hibernate.search.[default|&lt;indexname&gt;].indexwriter.merge_min_size"
 msgstr ""
 
 #. Tag: literal
-#: batchindex.xml:248
+#: batchindex.xml:271
 #, no-c-format
-msgid ""
-"hibernate.search.[default|&lt;indexname&gt;].indexwriter.batch."
-"ram_buffer_size"
+msgid "hibernate.search.[default|&lt;indexname&gt;].indexwriter.merge_max_size"
 msgstr ""
 
 #. Tag: literal
-#: batchindex.xml:252
+#: batchindex.xml:275
 #, no-c-format
 msgid ""
-"hibernate.search.[default|&lt;indexname&gt;].indexwriter.batch."
-"term_index_interval"
+"hibernate.search.[default|&lt;indexname&gt;].indexwriter."
+"merge_max_optimize_size"
+msgstr ""
+
+#. Tag: literal
+#: batchindex.xml:279
+#, no-c-format
+msgid ""
+"hibernate.search.[default|&lt;indexname&gt;].indexwriter."
+"merge_calibrate_by_deletes"
+msgstr ""
+
+#. Tag: literal
+#: batchindex.xml:283
+#, no-c-format
+msgid ""
+"hibernate.search.[default|&lt;indexname&gt;].indexwriter.ram_buffer_size"
+msgstr ""
+
+#. Tag: literal
+#: batchindex.xml:287
+#, no-c-format
+msgid ""
+"hibernate.search.[default|&lt;indexname&gt;].indexwriter.term_index_interval"
+msgstr ""
+
+#. Tag: literal
+#: batchindex.xml:291
+#, no-c-format
+msgid "hibernate.search.batchbackend.concurrent_writers"
 msgstr ""
 
 #. Tag: para
-#: batchindex.xml:256
+#: batchindex.xml:295
+#, no-c-format
+msgid ""
+"Previous versions also had a <literal>max_field_length</literal> but this "
+"was removed from Lucene, it's possible to obtain a similar effect by using a "
+"<classname>LimitTokenCountAnalyzer</classname>."
+msgstr ""
+
+#. Tag: para
+#: batchindex.xml:298
 #, no-c-format
 msgid ""
 "All <literal>.indexwriter</literal> parameters are Lucene specific and "
 "Hibernate Search is just passing these parameters through - see <xref "
 "linkend=\"lucene-indexing-performance\"/> for more details."
+msgstr ""
+
+#. Tag: para
+#: batchindex.xml:302
+#, no-c-format
+msgid ""
+"<literal>hibernate.search.batchbackend.concurrent_writers</literal> defaults "
+"to <literal>2</literal> and represent the number of threads being used at "
+"the Analysis and indexwriter stage of the MassIndexing pipeline. The "
+"<classname>MassIndexer</classname> .<methodname>threadsForIndexWriter(int)</"
+"methodname> method overrides this value."
 msgstr ""
