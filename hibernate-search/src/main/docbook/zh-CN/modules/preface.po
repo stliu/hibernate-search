@@ -1,0 +1,45 @@
+# Language zh-CN translations for PACKAGE package.
+# Automatically generated, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2011-07-01 17:29+0000\n"
+"PO-Revision-Date: 2011-07-01 17:29+0000\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh-CN\n"
+
+#. Tag: title
+#: preface.xml:31
+#, no-c-format
+msgid "Preface"
+msgstr ""
+
+#. Tag: para
+#: preface.xml:33
+#, no-c-format
+msgid ""
+"Full text search engines like Apache Lucene are very powerful technologies "
+"to add efficient free text search capabilities to applications. However, "
+"Lucene suffers several mismatches when dealing with object domain models. "
+"Amongst other things indexes have to be kept up to date and mismatches "
+"between index structure and domain model as well as query mismatches have to "
+"be avoided."
+msgstr ""
+
+#. Tag: para
+#: preface.xml:41
+#, no-c-format
+msgid ""
+"Hibernate Search addresses these shortcomings - it indexes your domain model "
+"with the help of a few annotations, takes care of database/index "
+"synchronization and brings back regular managed objects from free text "
+"queries. To achieve this Hibernate Search is combining the power of <ulink "
+"url=\"http://www.hibernate.org\">Hibernate</ulink> and <ulink url=\"http://"
+"lucene.apache.org\">Apache Lucene</ulink>."
+msgstr ""

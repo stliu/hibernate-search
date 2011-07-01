@@ -1,0 +1,517 @@
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2011-07-01 17:21+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <kde-i18n-doc@kde.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Tag: title
+#: advanced-features.xml:31
+#, no-c-format
+msgid "Advanced features"
+msgstr ""
+
+#. Tag: para
+#: advanced-features.xml:33
+#, no-c-format
+msgid "In this final chapter we are offering a smorgasbord of tips and tricks which might become useful as you dive deeper and deeper into Hibernate Search."
+msgstr ""
+
+#. Tag: title
+#: advanced-features.xml:38
+#, no-c-format
+msgid "Accessing the SearchFactory"
+msgstr ""
+
+#. Tag: para
+#: advanced-features.xml:40
+#, no-c-format
+msgid "The <classname>SearchFactory</classname> object keeps track of the underlying Lucene resources for Hibernate Search. It is a convenient way to access Lucene natively. The <classname>SearchFactory</classname> can be accessed from a<classname> FullTextSession</classname>:"
+msgstr ""
+
+#. Tag: title
+#: advanced-features.xml:46
+#, no-c-format
+msgid "Accessing the <classname>SearchFactory</classname>"
+msgstr ""
+
+#. Tag: programlisting
+#: advanced-features.xml:48
+#, no-c-format
+msgid ""
+      "FullTextSession fullTextSession = Search.getFullTextSession(regularSession);\n"
+      "SearchFactory searchFactory = fullTextSession.getSearchFactory();"
+msgstr ""
+
+#. Tag: title
+#: advanced-features.xml:53
+#, no-c-format
+msgid "Accessing a Lucene Directory"
+msgstr ""
+
+#. Tag: para
+#: advanced-features.xml:55
+#, no-c-format
+msgid "You can always access the Lucene directories through plain Lucene. The <classname>Directory</classname> structure is in no way different with or without Hibernate Search. However there are some more convenient ways to access a given Directory. The <classname>SearchFactory</classname> keeps track of the <classname>DirectoryProvider</classname>s per indexed class. One directory provider can be shared amongst several indexed classes, if the classes share the same underlying index directory. While usually not the case, a given entity can have several <classname>DirectoryProvider</classname>s if the index is sharded (see <xref linkend=\"search-configuration-directory-sharding\"/>)."
+msgstr ""
+
+#. Tag: title
+#: advanced-features.xml:67
+#, no-c-format
+msgid "Accessing the Lucene <classname>Directory</classname>"
+msgstr ""
+
+#. Tag: programlisting
+#: advanced-features.xml:69
+#, no-c-format
+msgid ""
+      "DirectoryProvider[] provider = searchFactory.getDirectoryProviders(Order.class);\n"
+      "org.apache.lucene.store.Directory directory = provider[0].getDirectory();"
+msgstr ""
+
+#. Tag: para
+#: advanced-features.xml:72
+#, no-c-format
+msgid "In this example, directory points to the lucene index storing <classname>Order</classname>s information. Note that the obtained Lucene directory must not be closed (this is Hibernate Search's responsibility)."
+msgstr ""
+
+#. Tag: title
+#: advanced-features.xml:79
+#, no-c-format
+msgid "Using an IndexReader"
+msgstr ""
+
+#. Tag: para
+#: advanced-features.xml:81
+#, no-c-format
+msgid "Queries in Lucene are executed on an <literal>IndexReader</literal>. Hibernate Search caches all index readers to maximize performance. Your code can access this cached resources, but you have to follow some \"good citizen\" rules."
+msgstr ""
+
+#. Tag: title
+#: advanced-features.xml:87
+#, no-c-format
+msgid "Accessing an <classname>IndexReader</classname>"
+msgstr ""
+
+#. Tag: programlisting
+#: advanced-features.xml:89
+#, no-c-format
+msgid ""
+      "DirectoryProvider orderProvider = searchFactory.getDirectoryProviders(Order.class)[0];\n"
+      "DirectoryProvider clientProvider = searchFactory.getDirectoryProviders(Client.class)[0];\n"
+      "\n"
+      "ReaderProvider readerProvider = searchFactory.getReaderProvider();\n"
+      "IndexReader reader = readerProvider.openReader(orderProvider, clientProvider);\n"
+      "\n"
+      "try {\n"
+      "   //do read-only operations on the reader\n"
+      "}\n"
+      "finally {\n"
+      "   readerProvider.closeReader(reader);\n"
+      "}"
+msgstr ""
+
+#. Tag: para
+#: advanced-features.xml:92
+#, no-c-format
+msgid "The ReaderProvider (described in<xref linkend=\"search-architecture-readerstrategy\"/>), will open an IndexReader on top of the index(es) referenced by the directory providers. Because this <classname>IndexReader</classname> is shared amongst several clients, you must adhere to the following rules:"
+msgstr ""
+
+#. Tag: para
+#: advanced-features.xml:100
+#, no-c-format
+msgid "Never call indexReader.close(), but always call readerProvider.closeReader(reader), preferably in a finally block."
+msgstr ""
+
+#. Tag: para
+#: advanced-features.xml:106
+#, no-c-format
+msgid "Don't use this <classname>IndexReader</classname> for modification operations (you would get an exception). If you want to use a read/write index reader, open one from the Lucene Directory object."
+msgstr ""
+
+#. Tag: para
+#: advanced-features.xml:113
+#, no-c-format
+msgid "Aside from those rules, you can use the <classname>IndexReader</classname> freely, especially to do native queries. Using the shared <literal>IndexReader</literal>s will make most queries more efficient."
+msgstr ""
+
+#. Tag: title
+#: advanced-features.xml:120
+#, no-c-format
+msgid "Use external services in Hibernate Search components (experimental)"
+msgstr ""
+
+#. Tag: para
+#: advanced-features.xml:123
+#, no-c-format
+msgid "By components, this section means any of the pluggable contracts - <classname>DirectoryProvider</classname> being the most useful use case:"
+msgstr ""
+
+#. Tag: classname
+#: advanced-features.xml:129
+#, no-c-format
+msgid "DirectoryProvider"
+msgstr ""
+
+#. Tag: classname
+#: advanced-features.xml:133
+#, no-c-format
+msgid "ReaderProvider"
+msgstr ""
+
+#. Tag: classname
+#: advanced-features.xml:137
+#, no-c-format
+msgid "OptimizerStrategy"
+msgstr ""
+
+#. Tag: classname
+#: advanced-features.xml:141
+#, no-c-format
+msgid "BackendQueueProcessorFactory"
+msgstr ""
+
+#. Tag: classname
+#: advanced-features.xml:145
+#, no-c-format
+msgid "Worker"
+msgstr ""
+
+#. Tag: para
+#: advanced-features.xml:149
+#, no-c-format
+msgid "Some of these compnents need to access a service which is either available in the environment or whose lifecycle is bound to the <classname>SearchFactory</classname>. Sometimes, you even want the same service to be shared amongst several instances of these contract. One example is the ability the share an Infinispan cache instance between several directory providers to store the various indexes using the same underlying infrastructure."
+msgstr ""
+
+#. Tag: title
+#: advanced-features.xml:158
+#, no-c-format
+msgid "Exposing a service"
+msgstr ""
+
+#. Tag: para
+#: advanced-features.xml:160
+#, no-c-format
+msgid "To expose a service, you need to implement <classname>org.hibernate.search.spi.ServiceProvider&lt;T&gt;</classname>. <classname>T</classname> is the type of the service you want to use. Services are retrieved by components via their <classname>ServiceProvider</classname> class implementation."
+msgstr ""
+
+#. Tag: title
+#: advanced-features.xml:167
+#, no-c-format
+msgid "Managed services"
+msgstr ""
+
+#. Tag: para
+#: advanced-features.xml:169
+#, no-c-format
+msgid "If your service ought to be started when Hibernate Search starts and stopped when Hibernate Search stops, you can use a managed service. Make sure to properly implement the <methodname>start</methodname> and <methodname>stop</methodname> methods of <classname>ServiceProvider</classname>. When the service is requested, the <methodname>getService</methodname> method is called."
+msgstr ""
+
+#. Tag: title
+#: advanced-features.xml:178
+#, no-c-format
+msgid "Example of ServiceProvider implementation"
+msgstr ""
+
+#. Tag: programlisting
+#: advanced-features.xml:180
+#, no-c-format
+msgid ""
+      "public class CacheServiceProvider implements ServiceProvider&lt;Cache&gt; {\n"
+      "    private CacheManager manager;\n"
+      "\n"
+      "    public void start(Properties properties) {\n"
+      "        //read configuration\n"
+      "        manager = new CacheManager(properties);\n"
+      "    }\n"
+      "\n"
+      "    public Cache getService() {\n"
+      "        return manager.getCache(DEFAULT);\n"
+      "    }\n"
+      "\n"
+      "    void stop() {\n"
+      "        manager.close();\n"
+      "    }\n"
+      "}"
+msgstr ""
+
+#. Tag: para
+#: advanced-features.xml:184
+#, no-c-format
+msgid "The <classname>ServiceProvider</classname> implementation must have a no-arg constructor."
+msgstr ""
+
+#. Tag: para
+#: advanced-features.xml:188
+#, no-c-format
+msgid "To be transparently discoverable, such service should have an accompanying <filename>META-INF/services/org.hibernate.search.spi.ServiceProvider</filename> whose content list the (various) service provider implementation(s)."
+msgstr ""
+
+#. Tag: title
+#: advanced-features.xml:195
+#, no-c-format
+msgid "Content of META-INF/services/org.hibernate.search.spi.ServiceProvider"
+msgstr ""
+
+#. Tag: programlisting
+#: advanced-features.xml:198
+#, no-c-format
+msgid "com.acme.infra.hibernate.CacheServiceProvider"
+msgstr ""
+
+#. Tag: title
+#: advanced-features.xml:203
+#, no-c-format
+msgid "Provided services"
+msgstr ""
+
+#. Tag: para
+#: advanced-features.xml:205
+#, no-c-format
+msgid "Alternatively, the service can be provided by the environment bootstrapping Hibernate Search. For example, Infinispan which uses Hibernate Search as its internal search engine can pass the <classname>CacheContainer</classname> to Hibernate Search. In this case, the <classname>CacheContainer</classname> instance is not managed by Hibernate Search and the <methodname>start</methodname>/<methodname>stop</methodname> methods of its corresponding service provider will not be used."
+msgstr ""
+
+#. Tag: para
+#: advanced-features.xml:215
+#, no-c-format
+msgid "Provided services have priority over managed services. If a provider service is registered with the same <classname>ServiceProvider</classname> class as a managed service, the provided service will be used."
+msgstr ""
+
+#. Tag: para
+#: advanced-features.xml:221
+#, no-c-format
+msgid "The provided services are passed to Hibernate Search via the <classname>SearchConfiguration</classname> interface (<methodname>getProvidedServices</methodname>)."
+msgstr ""
+
+#. Tag: para
+#: advanced-features.xml:226
+#, no-c-format
+msgid "Provided services are used by frameworks controlling the lifecycle of Hibernate Search and not by traditional users."
+msgstr ""
+
+#. Tag: para
+#: advanced-features.xml:230
+#, no-c-format
+msgid "If, as a user, you want to retrieve a service instance from the environment, use registry services like JNDI and look the service up in the provider."
+msgstr ""
+
+#. Tag: title
+#: advanced-features.xml:237
+#, no-c-format
+msgid "Using a service"
+msgstr ""
+
+#. Tag: para
+#: advanced-features.xml:239
+#, no-c-format
+msgid "Many of of the pluggable contracts of Hibernate Search can use services. Services are accessible via the <classname>BuildContext</classname> interface."
+msgstr ""
+
+#. Tag: title
+#: advanced-features.xml:244
+#, no-c-format
+msgid "Example of a directory provider using a cache service"
+msgstr ""
+
+#. Tag: programlisting
+#: advanced-features.xml:246
+#, no-c-format
+msgid ""
+      "public CustomDirectoryProvider implements DirectoryProvider&lt;RAMDirectory&gt; {\n"
+      "    private BuildContext context;\n"
+      "\n"
+      "    public void initialize(\n"
+      "        String directoryProviderName, \n"
+      "        Properties properties, \n"
+      "        BuildContext context) {\n"
+      "        //initialize\n"
+      "        this.context = context;\n"
+      "    }\n"
+      "\n"
+      "    public void start() {\n"
+      "        Cache cache = context.requestService( CacheServiceProvider.class );\n"
+      "        //use cache\n"
+      "    }\n"
+      "\n"
+      "    public RAMDirectory getDirectory() {\n"
+      "        // use cache\n"
+      "    }\n"
+      "\n"
+      "    public stop() {\n"
+      "        //stop services\n"
+      "        context.releaseService( CacheServiceProvider.class );\n"
+      "    } \n"
+      "}"
+msgstr ""
+
+#. Tag: para
+#: advanced-features.xml:249
+#, no-c-format
+msgid "When you request a service, an instance of the service is served to you. Make sure to then release the service. This is fundamental. Note that the service can be released in the <methodname>DirectoryProvider.stop</methodname> method if the <classname>DirectoryProvider</classname> uses the service during its lifetime or could be released right away of the service is simply used at initialization time."
+msgstr ""
+
+#. Tag: title
+#: advanced-features.xml:260
+#, no-c-format
+msgid "Customizing Lucene's scoring formula"
+msgstr ""
+
+#. Tag: para
+#: advanced-features.xml:262
+#, no-c-format
+msgid "Lucene allows the user to customize its scoring formula by extending <classname>org.apache.lucene.search.Similarity</classname>. The abstract methods defined in this class match the factors of the following formula calculating the score of query q for document d:"
+msgstr ""
+
+#. Tag: emphasis
+#: advanced-features.xml:267
+#, no-c-format
+msgid "score(q,d) = coord(q,d) · queryNorm(q) · ∑ <subscript>t in q</subscript> ( tf(t in d) · idf(t) <superscript>2</superscript> · t.getBoost() · norm(t,d) )"
+msgstr ""
+
+#. Tag: entry
+#: advanced-features.xml:276
+#, no-c-format
+msgid "Factor"
+msgstr ""
+
+#. Tag: entry
+#: advanced-features.xml:278
+#, no-c-format
+msgid "Description"
+msgstr ""
+
+#. Tag: entry
+#: advanced-features.xml:284
+#, no-c-format
+msgid "tf(t ind)"
+msgstr ""
+
+#. Tag: entry
+#: advanced-features.xml:286
+#, no-c-format
+msgid "Term frequency factor for the term (t) in the document (d)."
+msgstr ""
+
+#. Tag: entry
+#: advanced-features.xml:291
+#, no-c-format
+msgid "idf(t)"
+msgstr ""
+
+#. Tag: entry
+#: advanced-features.xml:293
+#, no-c-format
+msgid "Inverse document frequency of the term."
+msgstr ""
+
+#. Tag: entry
+#: advanced-features.xml:297
+#, no-c-format
+msgid "coord(q,d)"
+msgstr ""
+
+#. Tag: entry
+#: advanced-features.xml:299
+#, no-c-format
+msgid "Score factor based on how many of the query terms are found in the specified document."
+msgstr ""
+
+#. Tag: entry
+#: advanced-features.xml:304
+#, no-c-format
+msgid "queryNorm(q)"
+msgstr ""
+
+#. Tag: entry
+#: advanced-features.xml:306
+#, no-c-format
+msgid "Normalizing factor used to make scores between queries comparable."
+msgstr ""
+
+#. Tag: entry
+#: advanced-features.xml:311
+#, no-c-format
+msgid "t.getBoost()"
+msgstr ""
+
+#. Tag: entry
+#: advanced-features.xml:313
+#, no-c-format
+msgid "Field boost."
+msgstr ""
+
+#. Tag: entry
+#: advanced-features.xml:317
+#, no-c-format
+msgid "norm(t,d)"
+msgstr ""
+
+#. Tag: entry
+#: advanced-features.xml:319
+#, no-c-format
+msgid "Encapsulates a few (indexing time) boost and length factors."
+msgstr ""
+
+#. Tag: para
+#: advanced-features.xml:323
+#, no-c-format
+msgid "It is beyond the scope of this manual to explain this formula in more detail. Please refer to <classname>Similarity</classname>'s Javadocs for more information."
+msgstr ""
+
+#. Tag: para
+#: advanced-features.xml:328
+#, no-c-format
+msgid "Hibernate Search provides three ways to modify Lucene's similarity calculation."
+msgstr ""
+
+#. Tag: para
+#: advanced-features.xml:331
+#, no-c-format
+msgid "First you can set the default similarity by specifying the fully specified classname of your <classname>Similarity</classname> implementation using the property <constant>hibernate.search.similarity</constant>. The default value is <classname>org.apache.lucene.search.DefaultSimilarity</classname>."
+msgstr ""
+
+#. Tag: para
+#: advanced-features.xml:337
+#, no-c-format
+msgid "You can also override the similarity used for a specific index by setting the <literal>similarity</literal> property"
+msgstr ""
+
+#. Tag: programlisting
+#: advanced-features.xml:340
+#, no-c-format
+msgid "hibernate.search.default.similarity my.custom.Similarity"
+msgstr ""
+
+#. Tag: para
+#: advanced-features.xml:342
+#, no-c-format
+msgid ""
+      "Finally you can override the default similarity on class level using the <literal>@Similarity</literal> annotation. <programlisting>@Entity\n"
+      "@Indexed\n"
+      "<emphasis role=\"bold\">@Similarity(impl = DummySimilarity.class)</emphasis>\n"
+      "public class Book {\n"
+      "...\n"
+      "}           </programlisting> As an example, let's assume it is not important how often a term appears in a document. Documents with a single occurrence of the term should be scored the same as documents with multiple occurrences. In this case your custom implementation of the method <methodname>tf(float freq) </methodname> should return 1.0."
+msgstr ""
+
+#. Tag: para
+#: advanced-features.xml:350
+#, no-c-format
+msgid "When two entities share the same index they must declare the same <classname>Similarity</classname> implementation. Classes in the same class hierarchy always share the index, so it's not allowed to override the <classname>Similarity</classname> implementation in a subtype."
+msgstr ""
+
+#. Tag: para
+#: advanced-features.xml:356
+#, no-c-format
+msgid "Likewise, it does not make sense to define the similarity via the index setting and the class-level setting as they would conflict. Such a configuration will be rejected."
+msgstr ""
+
