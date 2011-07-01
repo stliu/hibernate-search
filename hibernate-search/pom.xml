@@ -164,7 +164,7 @@
                     <sourceDocumentName>master.xml</sourceDocumentName>
                     <masterTranslation>en-US</masterTranslation>
                     <translations>
-                        <!--translation>zh-CN</translation--> <!-- Commented out since the existing pot files are currently empty -->
+                        <translation>zh-CN</translation> <!-- Commented out since the existing pot files are currently empty -->
                     </translations>
                     <imageResource>
                         <directory>${basedir}/src/main/docbook/en-US/images</directory>
