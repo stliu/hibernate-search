@@ -1728,8 +1728,8 @@ hibernate.search.Books.locking_strategy org.custom.components.MyLockingFactory</
     exceptions are logged to the log output by default. It is possible to
     explicitly declare the exception logging mechanism as seen below:</para>
 
-    <para><programlisting>hibernate.search.error_handler log</programlisting>The
-    default exception handling occurs for both synchronous and asynchronous
+    <para><programlisting>hibernate.search.error_handler log</programlisting>
+    The default exception handling occurs for both synchronous and asynchronous
     indexing. Hibernate Search provides an easy mechanism to override the
     default error handling implementation.</para>
 
