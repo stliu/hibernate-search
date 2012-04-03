@@ -96,7 +96,7 @@
 
     <files>
         <file>
-            <source>../READ.md</source>
+            <source>../README.md</source>
             <outputDirectory>/</outputDirectory>
         </file>
         <file>
