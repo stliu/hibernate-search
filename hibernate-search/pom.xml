@@ -28,7 +28,7 @@
     <parent>
         <artifactId>hibernate-search-parent</artifactId>
         <groupId>org.hibernate</groupId>
-        <version>4.1.0.CR3</version>
+        <version>4.1.0.CR3-redhat-1</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -42,7 +42,6 @@
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>hibernate-search-orm</artifactId>
-            <version>${project.version}</version>
         </dependency>
     </dependencies>
 </project>
